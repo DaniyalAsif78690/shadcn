@@ -1,9 +1,10 @@
-import CardBig from "./components/Card";
+import SideBar from "./components/SideBar";
+
 
  
 function App() {
   return (
-    <CardBig/>
+    <SideBar/>
   )
 }
 
