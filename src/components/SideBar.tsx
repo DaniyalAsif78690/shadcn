@@ -3,8 +3,7 @@ import {
   SidebarMenuButton,
   SidebarMenu,
   SidebarMenuItem,
-  SidebarProvider,
-  SidebarMenuSub,
+   SidebarMenuSub,
   SidebarMenuSubItem,
 } from "@/components/ui/sidebar";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -35,8 +34,7 @@ import {
 function SideBar() {
   return (
     <>
-      <SidebarProvider>
-        <Sidebar>
+        <Sidebar className="bg-white">
           {/* Sidebar Header */}
           <SidebarHeader className="flex items-center justify-between  px-2">
             <SidebarMenu>
@@ -341,8 +339,7 @@ function SideBar() {
             </SidebarGroup>
           </SidebarContent>
         </Sidebar>
-      </SidebarProvider>
-    </>
+     </>
   );
 }
 

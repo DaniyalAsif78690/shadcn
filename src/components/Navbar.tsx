@@ -1,30 +1,46 @@
-import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuList,
-  NavigationMenuLink,
-} from "@/components/ui/navigation-menu"; 
-// 👆 Look: No styling functions imported here at all! Fast Refresh will be happy.
-
+ import { Star, Sun, RotateCcwClock, Bell,Search  } from "lucide-react";
+import { Input } from "./ui/input";
+import { SidebarTrigger } from "./ui/sidebar";
 function Navbar() {
-  const navbar = ["Home", "About", "Services", "Portfolio", "Blog", "Contact"];
-
-  // This is the exact underlying Tailwind configuration Shadcn uses for that menu item
-  const itemStyles = "group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50";
-
+ 
+  
   return (
-    <div className="p-4 border-b"> 
-      <NavigationMenu>
-        <NavigationMenuList>
-          {navbar.map((nav, idx) => (
-            <NavigationMenuItem key={idx}> 
-              <NavigationMenuLink className={itemStyles}>
-                {nav}
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-          ))}
-        </NavigationMenuList>
-      </NavigationMenu>
+    <div className="p-4 border-b flex flex-row justify-between gap-4">
+      {/* 1. Put the trigger outside the menu layout for clean spacing */}
+
+      <div >
+        <div className="flex flex-row justify-center items-center gap-4">
+          <div>
+             <SidebarTrigger/>
+          </div>
+           <div>
+           
+
+            <Star size={18} />
+          </div>
+        </div>
+        <div></div>
+      </div>
+      <div className="flex flex-row justify-center items-center gap-4">
+        <div>
+ <Input
+        type="search"
+        placeholder="Search"
+        // 1. Pass the search icon to the left side
+        prefixIcon={<Search className="h-4 w-4" />} 
+        // 2. Pass the custom keyboard shortcut badge to the right side
+        suffixIcon={
+          <kbd className="pointer-events-none inline-flex h-5 select-none items-center rounded border bg-muted/50 px-1.5 font-mono text-[10px] font-medium text-muted-foreground">
+            <span>/</span>
+          </kbd>
+        }
+      />        </div>
+        <div className="flex flex-row justify-center items-center gap-4">
+          <Sun size={18} />
+          <RotateCcwClock size={18}/>
+          <Bell size={18} />
+         </div>
+      </div>
     </div>
   );
 }
