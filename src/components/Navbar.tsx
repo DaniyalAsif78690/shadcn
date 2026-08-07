@@ -1,8 +1,11 @@
  import { Star, Sun, RotateCcwClock, Bell,Search  } from "lucide-react";
 import { Input } from "./ui/input";
 import { SidebarTrigger } from "./ui/sidebar";
+import {useDrawerLayout} from "@/features/useDrawerLayout"; 
+import { PanelLeftIcon } from "lucide-react"
+
 function Navbar() {
- 
+const {rightSidebarOpen, setRightSidebarOpen} = useDrawerLayout();
   
   return (
     <div className="p-4 border-b flex flex-row justify-between gap-4">
@@ -39,7 +42,10 @@ function Navbar() {
           <Sun size={18} />
           <RotateCcwClock size={18}/>
           <Bell size={18} />
-         </div>
+          
+          <PanelLeftIcon size={18} onClick={() => setRightSidebarOpen(!rightSidebarOpen)} />
+          </div>
+         
       </div>
     </div>
   );

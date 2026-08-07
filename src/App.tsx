@@ -1,41 +1,45 @@
 import SideBar from "./components/SideBar";
 import Navbar from "./components/Navbar";
 import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar";
- function App() {
+import RightDrawer from "@/components/RightDrawer";
+import {  useDrawerLayout } from "./features/useDrawerLayout";
+import { DrawerLayoutProvider } from "./features/drawerContext";
+import Main from "./Layout/Main";
+
+function AppContent() {
+  const { rightSidebarOpen, setRightSidebarOpen } = useDrawerLayout();
 
   return (
-    // 1. The outer provider manages your Left Sidebar
-   <>
-   
-    <SidebarProvider id="left-sidebar-provider" defaultOpen={true}
-     
-    >
-      <SideBar
-     
-      ></SideBar>
+    <>
+      <SidebarProvider id="left-sidebar-provider" defaultOpen={true}>
+        <SideBar />
 
-      {/* Your left sidebar component */}
- 
-      {/* 2. SidebarInset ensures main content scales correctly when left collapses */}
-      <SidebarInset className="flex flex-col flex-1 overflow-hidden">
-        <Navbar />
-        
-        {/* 3. The inner provider manages your Right Sidebar independent of the left */}
-           <div className="flex flex-1 w-full h-full relative">
-            
-            {/* Main content area */}
-            <main className="flex-1 p-6 overflow-y-auto">
-              Content goes here
+        <SidebarInset className="flex flex-col flex-1 overflow-hidden">
+          <Navbar />
+
+          <div className="flex flex-1 w-full h-full relative">
+            <main className="flex-1 p-6 overflow-y-auto"> 
+<Main/>
+
             </main>
 
-            {/* Your second sidebar component configured for the right side */}
- 
+            <RightDrawer
+              open={rightSidebarOpen}
+              onOpenChange={setRightSidebarOpen}
+            />
           </div>
-      </SidebarInset>
-              </SidebarProvider>
+        </SidebarInset>
+      </SidebarProvider>
+    </>
+  );
+}
 
-   </>
-   );
+function App() {
+  return (
+    <DrawerLayoutProvider>
+      <AppContent />
+    </DrawerLayoutProvider>
+  );
 }
 
 export default App;
