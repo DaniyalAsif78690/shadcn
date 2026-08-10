@@ -17,14 +17,14 @@ function Input({
   ...props 
 }: InputProps) {
   return (
-    <div className="relative flex items-center w-full">
+    <div className="relative flex items-center w-full text-[#0000000A]/4">
       {prefixIcon && (
         <div className="absolute left-2.5 flex items-center justify-center pointer-events-none text-muted-foreground">
           {prefixIcon}
         </div>
       )}
       
-      <InputPrimitive
+      <InputPrimitive 
         type={type}
         data-slot="input"
         className={cn(

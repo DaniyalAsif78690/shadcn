@@ -1,6 +1,9 @@
- import { StatsCard } from "../components/StatsCard";
-import {ChartLineMultiple} from "../components/LineChart";
+import { StatsCard } from "../components/StatsCard";
+import { ChartLineMultiple } from "../components/LineChart";
 import { TrafficByWebsite } from "@/components/WebTrafic";
+
+import { ChartPieDonutText } from "../components/PieChart.jsx";
+import { ChartBarDefault } from "../components/BarChart.jsx";
 function Main() {
   const statsData = [
     {
@@ -58,13 +61,20 @@ function Main() {
       </div>
       <div className="charts  w-full flex flex-row  ">
         <div className="w-[70%]">
-            <ChartLineMultiple/>
+          <ChartLineMultiple />
         </div>
         <div className="w-[30%] flex  justify-center items-center  gap-4">
-          <TrafficByWebsite/>
+          <TrafficByWebsite />
         </div>
       </div>
-      <div className="pie-circle-chart"></div>
+      <div className="pie-circle-chart flex flex-col mt-10 gap-4 lg:flex-row lg:items-stretch">
+        <div className="w-full min-w-0 lg:w-1/2 mr-2">
+          <ChartBarDefault />
+        </div>
+        <div className="w-full min-w-0 lg:w-1/2">
+          <ChartPieDonutText />
+        </div>
+      </div>
     </div>
   );
 }

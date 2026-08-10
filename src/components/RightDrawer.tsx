@@ -104,15 +104,15 @@ const contacts = [
 
 function NotificationIcon({ type }: { type: string }) {
   if (type === "bug") {
-    return <Bug className="size-3.5" />;
+    return <Bug className="h-5 w-5" />;
   }
 
   if (type === "user") {
-    return <UserPlus className="size-3.5" />;
+    return <UserPlus className="h-5 w-5" />;
   }
 
   if (type === "subscribe") {
-    return <Radio className="size-3.5" />;
+    return <Radio className="h-5 w-5" />;
   }
 
   return null;

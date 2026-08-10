@@ -35,7 +35,7 @@ export function StatsCard({
               {percentage}
             </span>
 
-            <TrendingUp className="size-2.5 text-foreground" size={16} type={trend} />
+            <TrendingUp size={16}  className="size-2.5 text-black"   type={trend} />
           </div>
         </div>
       </CardContent>
