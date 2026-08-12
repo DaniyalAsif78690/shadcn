@@ -29,7 +29,7 @@ import CorporateIcon from "@/assets/corporate.svg"
 import BlogIcon from "@/assets/blog.svg"
 import SocialIcon from "@/assets/social.svg"
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 function SideBar() {
   return (
     <>
