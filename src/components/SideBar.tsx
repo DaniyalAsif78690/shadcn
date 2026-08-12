@@ -29,6 +29,7 @@ import CorporateIcon from "@/assets/corporate.svg"
 import BlogIcon from "@/assets/blog.svg"
 import SocialIcon from "@/assets/social.svg"
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 function SideBar() {
   return (
     <>
@@ -75,14 +76,14 @@ function SideBar() {
             <SidebarGroup className="flex flex-col gap-2">
               <SidebarGroupLabel className="text-[#00000033] text-[14px] font-normal">Dashboard</SidebarGroupLabel>
               <SidebarGroupContent>
-                <SidebarMenuItem>
-                  <SidebarMenuButton>
-                    <span>
-                      <OverviewIcon className="h-5 w-5" />
-                    </span>
-                    <span className="text-[#000000] text-[14px] font-normal ">Overview</span>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton>
+                      <Link to="/" className="flex w-full items-center gap-3 px-3 py-2">
+                        <OverviewIcon className="h-5 w-5" />
+                        <span className="text-[#000000] text-[14px] font-normal ">Overview</span>
+                      </Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
               </SidebarGroupContent>
               <SidebarGroupContent>
                 <SidebarMenu>
@@ -105,8 +106,10 @@ function SideBar() {
                     <CollapsibleContent className="flex flex-col items-start gap-2 p-2.5 pt-0 text-sm">
                       <SidebarMenuItem>
                         <SidebarMenuSub>
-                          <SidebarMenuSubItem  className="text-[#000000] text-[14px] font-normal ">Products</SidebarMenuSubItem>
-                          <SidebarMenuSubItem  className="text-[#000000] text-[14px] font-normal ">Orders</SidebarMenuSubItem>
+                          <SidebarMenuSubItem className="text-[#000000] text-[14px] font-normal ">Products</SidebarMenuSubItem>
+                          <SidebarMenuSubItem className="text-[#000000] text-[14px] font-normal ">
+                            <Link to="/orderList">Orders</Link>
+                          </SidebarMenuSubItem>
                         </SidebarMenuSub>
                       </SidebarMenuItem>
                     </CollapsibleContent>
@@ -179,60 +182,60 @@ function SideBar() {
                 <SidebarMenu>
                   <SidebarMenuItem>
                     <SidebarMenuButton>
-                      <a
-                        href="/overview"
+                      <Link
+                        to="/overview"
                         className="flex w-full items-center px-3 py-2 text-sm font-medium"
                       >
                         <span className="text-[#000000] text-[14px] font-normal ">Overview</span>
-                      </a>
+                      </Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
 
                   {/* 2. Projects */}
                   <SidebarMenuItem>
                     <SidebarMenuButton>
-                      <a
-                        href="/projects"
+                      <Link
+                        to="/projects"
                         className="flex w-full items-center px-3 py-2 text-sm font-medium"
                       >
                         <span className="text-[#000000] text-[14px] font-normal ">Projects</span>
-                      </a>
+                      </Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
 
                   {/* 3. Campaigns */}
                   <SidebarMenuItem>
                     <SidebarMenuButton>
-                      <a
-                        href="/campaigns"
+                      <Link
+                        to="/campaigns"
                         className="flex w-full items-center px-3 py-2 text-sm font-medium"
                       >
                         <span  className="text-[#000000] text-[14px] font-normal ">Campaigns</span>
-                      </a>
+                      </Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
 
                   {/* 4. Documents */}
                   <SidebarMenuItem>
                     <SidebarMenuButton>
-                      <a
-                        href="/documents"
+                      <Link
+                        to="/documents"
                         className="flex w-full items-center px-3 py-2 text-sm font-medium"
                       >
                         <span  className="text-[#000000] text-[14px] font-normal ">Documents</span>
-                      </a>
+                      </Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
 
                   {/* 5. Followers */}
                   <SidebarMenuItem>
                     <SidebarMenuButton>
-                      <a
-                        href="/followers"
+                      <Link
+                        to="/followers"
                         className="flex w-full items-center px-3 py-2 text-sm font-medium"
                       >
                         <span  className="text-[#000000] text-[14px] font-normal ">Followers</span>
-                      </a>
+                      </Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 </SidebarMenu>

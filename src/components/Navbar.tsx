@@ -6,11 +6,10 @@ import BellIcon from "@/assets/notification.svg"
 import LeftSidebarIcon from "@/assets/leftsidebar.svg"
 import { Input } from "./ui/input"
 import { SidebarTrigger } from "./ui/sidebar"
-import {useDrawerLayout} from "@/features/useDrawerLayout"
+import { DrawerTrigger } from "@/components/ui/drawer"
 
 function Navbar() {
-const {rightSidebarOpen, setRightSidebarOpen} = useDrawerLayout();
-  
+   
   return (
     <div className="p-4 border-b flex flex-row items-center justify-between gap-4">
       <div className="flex items-center gap-3">
@@ -23,7 +22,7 @@ const {rightSidebarOpen, setRightSidebarOpen} = useDrawerLayout();
       </div>
 
       <div className="flex flex-1 items-center justify-end gap-3">
-        <div className="min-w-[220px]">
+        <div className="min-w-55">
           <Input
             type="search"
             placeholder="Search"
@@ -45,9 +44,13 @@ const {rightSidebarOpen, setRightSidebarOpen} = useDrawerLayout();
         <button className="grid h-9 w-9 place-items-center rounded-lg text-muted-foreground" type="button">
           <BellIcon className="h-4 w-4" />
         </button>
-        <button className="grid h-9 w-9 place-items-center rounded-lg text-muted-foreground" type="button" onClick={() => setRightSidebarOpen(!rightSidebarOpen)}>
+        <DrawerTrigger
+          type="button"
+          aria-label="Open notifications drawer"
+          className="grid h-9 w-9 place-items-center rounded-lg text-muted-foreground"
+        >
           <LeftSidebarIcon className="h-4 w-4" />
-        </button>
+        </DrawerTrigger>
       </div>
     </div>
   );

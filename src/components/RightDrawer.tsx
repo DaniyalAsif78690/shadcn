@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import {
   Drawer,
   DrawerContent,
@@ -121,17 +122,20 @@ function NotificationIcon({ type }: { type: string }) {
 interface DashboardDrawerProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  children?: ReactNode;
 }
 
 export default function RightDrawer({
   open,
   onOpenChange,
+  children,
 }: DashboardDrawerProps) {
   return (
     <Drawer
       open={open}
       onOpenChange={onOpenChange}
-     >
+    >
+      {children}
       <DrawerContent
         className="
           fixed

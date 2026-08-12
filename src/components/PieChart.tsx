@@ -57,7 +57,7 @@ export function ChartPieDonutText() {
                   <ChartContainer
           config={chartConfig}
           initialDimension={{ width: 320, height: 320 }}
-          className="aspect-auto h-[320px]"
+          className="aspect-auto h-80"
         >
           <PieChart>
             <ChartTooltip
